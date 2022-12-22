@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //1
+        const frameworks = ['AngularJS', 'jQuery'];
+        frameworks.unshift('Backbone.js');
+        frameworks.push('ReactJS', 'Vue.js');
+        frameworks.splice(1, 0, 'CommonJS');
+        console.log('Это здесь лишнее: ', frameworks.splice(frameworks.indexOf('jQuery'), 1));
+
+        //2
+
+        function removeNegativeElements(someArr) {
+            let result = someArr.filter(function (someArr) {
+                return someArr >= 0 || typeof someArr === "string";
+            });
+            console.log(result);
+        }
+
+        removeNegativeElements([-9, 2, 3, 0, -28, 'value']); // [2, 3, 0, 'value'];
+        removeNegativeElements([-9, -21, -12]); // []
+        removeNegativeElements(['-102', 102]); // ['-102', 102]
+
+
+        function removeNegativeEl(someArrSecond) {
+            let result = [];
+            for (let i = 0; i < someArrSecond.length; i++) {
+                if (someArrSecond[i] > 1 || typeof someArrSecond[i] !== "number") {
+                    result.push(someArrSecond[i]);
+                }
+            }
+            console.log(result);
+        }
+
+        removeNegativeEl([-9, 2, 3, 0, -28, 'value']); // [2, 3, 0, 'value'];
+        removeNegativeEl([-9, -21, -12]); // []
+        removeNegativeEl(['-102', 102]); // ['-102', 102]
+
+        //3
+
+        function getStringElements(someArr) {
+            let result = someArr.filter(someArr => typeof someArr === "string");
+            console.log(result);
+        }
+
+        let someArr = [1, true, 42, "red", 64, "green", "web", new Date(), -898, false]
+        getStringElements(someArr); // ['green', 'web']
+
+
+        function getStringElements2(someArr2) {
+            let result = [];
+            for (let i = 0; i < someArr2.length; i++) {
+                if (typeof someArr2[i] === "string") {
+                    result.push(someArr2[i]);
+                }
+            }
+            console.log(result);
+        }
+        getStringElements2(someArr);
+
+    </script>
+</body>
+
+</html>
